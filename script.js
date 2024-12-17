@@ -57,21 +57,27 @@ function displayQuestion(index) {
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
     document.getElementById("option-three-label").innerText = currentQuestion.optionC;
     document.getElementById("option-four-label").innerText = currentQuestion.optionD;
+
+    // Deselect the radio buttons when a new question is loaded
+    const options = document.querySelectorAll('input[name="option"]');
+    options.forEach(option => {
+        option.checked = false;
+    });
 }
 
 // Check if the answer is correct
-function checkAnswer(selectedOption) {
+function checkAnswer() {
+    const selectedOption = document.querySelector('input[name="option"]:checked');
     const currentQuestion = questions[indexNumber];
-    const isCorrect = selectedOption.value === currentQuestion.correctOption;
-    if (isCorrect) {
-        playerScore++;
-        alert("Bonne Réponse!");
-    } else {
-        const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
-        if (correctLabel) {
-            alert("Non! La bonne réponse est: " + correctLabel.innerText);
+    
+    if (selectedOption) {
+        const isCorrect = selectedOption.value === currentQuestion.correctOption;
+        if (isCorrect) {
+            playerScore++;
+            alert("Bonne Réponse!");
         } else {
-            alert("Non! Ceci n'est pas la bonne réponse.");
+            const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
+            alert("Non! La bonne réponse est: " + correctLabel.innerText);
         }
     }
     // Move to next question after one click
@@ -80,12 +86,6 @@ function checkAnswer(selectedOption) {
 
 // Move to the next question
 function handleNextQuestion() {
-    // Deselect the current selected option
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    if (selectedOption) {
-        selectedOption.checked = false;
-    }
-
     indexNumber++;
     questionNumber++;
 
@@ -106,10 +106,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const optionLabels = document.querySelectorAll('.option');
     optionLabels.forEach((label) => {
         label.addEventListener('click', (event) => {
-            const selectedOption = document.querySelector('input[name="option"]:checked');
-            if (selectedOption) {
-                checkAnswer(selectedOption);
-            }
+            checkAnswer(); // Call checkAnswer when a label is clicked
         });
     });
 });
