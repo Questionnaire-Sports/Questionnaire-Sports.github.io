@@ -264,6 +264,7 @@ function checkAnswer() {
         if (isCorrect) {
             playerScore++;
             alert("Bonne Réponse!");
+                questionNumber++;
 
         } else {
             const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
