@@ -299,7 +299,3 @@ const optionLabels = document.querySelectorAll('.option');
 optionLabels.forEach(label => {
   label.addEventListener('click', checkAnswer);
 });
-
-// Add event listener for the next button
-const nextButton = document.querySelector('.next-button-container button');
-nextButton.addEventListener('click', handleNextQuestion);
