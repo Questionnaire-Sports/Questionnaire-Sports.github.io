@@ -61,7 +61,7 @@ function displayQuestion(index) {
     // Deselect the radio buttons when a new question is loaded
     const options = document.querySelectorAll('input[name="option"]');
     options.forEach(option => {
-        option.checked = false;
+        option.checked = false; // Deselect all options
     });
 }
 
@@ -72,6 +72,8 @@ function checkAnswer() {
     
     if (selectedOption) {
         const isCorrect = selectedOption.value === currentQuestion.correctOption;
+        
+        // Update score and show message
         if (isCorrect) {
             playerScore++;
             alert("Bonne Réponse!");
@@ -80,6 +82,7 @@ function checkAnswer() {
             alert("Non! La bonne réponse est: " + correctLabel.innerText);
         }
     }
+
     // Move to next question after one click
     handleNextQuestion();
 }
