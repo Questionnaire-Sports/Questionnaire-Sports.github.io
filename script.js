@@ -1,3 +1,48 @@
+// Define the questions array
+const questions = [
+    {
+        question: "Quel sport est considéré le plus populaire dans le monde?",
+        optionA: "Soccer",
+        optionB: "Tennis",
+        optionC: "Golf",
+        optionD: "Basketball",
+        correctOption: "optionA",
+    },
+    {
+        question: "Les Jeux olympiques ont lieu tous les combien d'années ?",
+        optionA: "2 ans",
+        optionB: "4 ans",
+        optionC: "6 ans",
+        optionD: "8 ans",
+        correctOption: "optionB",
+    },
+    {
+        question: "Which team won the last World Hockey Championship?",
+        optionA: "Russie",
+        optionB: "Tchéquie",
+        optionC: "États-Unis",
+        optionD: "Canada",
+        correctOption: "optionB",
+    },
+    {
+        question: "Quelle distance parcourent les participants au marathon ?",
+        optionA: "10 kilomètres",
+        optionB: "21 kilomètres",
+        optionC: "42,195 kilomètres",
+        optionD: "100 kilomètres",
+        correctOption: "optionC",
+    },
+    {
+        question: "In what country was boxer Muhammad Ali born?",
+        optionA: "United States",
+        optionB: "United Kingdom",
+        optionC: "Canada",
+        optionD: "Jamaica",
+        correctOption: "optionA",
+    },
+    // Add more questions here as necessary
+];
+
 let questionNumber = 1;
 let playerScore = 0;
 let indexNumber = 0;
