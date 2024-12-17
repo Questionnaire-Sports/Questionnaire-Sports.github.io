@@ -59,30 +59,23 @@ function displayQuestion(index) {
     document.getElementById("option-four-label").innerText = currentQuestion.optionD;
 }
 
-// Check if answer is correct
-function checkAnswer() {
+// Check if the answer is correct
+function checkAnswer(selectedOption) {
     const currentQuestion = questions[indexNumber];
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    
-    if (selectedOption) {
-        const isCorrect = selectedOption.value === currentQuestion.correctOption;
-        if (isCorrect) {
-            playerScore++;
-            alert("Bonne Réponse!");
-        } else {
-            const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
-            if (correctLabel) {
-                alert("Non! La bonne réponse est: " + correctLabel.innerText);
-            } else {
-                alert("Non! Ceci n'est pas la bonne réponse.");
-            }
-        }
-
-        // Move to next question after one click
-        handleNextQuestion();
+    const isCorrect = selectedOption.value === currentQuestion.correctOption;
+    if (isCorrect) {
+        playerScore++;
+        alert("Bonne Réponse!");
     } else {
-        alert("Please select an answer.");
+        const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
+        if (correctLabel) {
+            alert("Non! La bonne réponse est: " + correctLabel.innerText);
+        } else {
+            alert("Non! Ceci n'est pas la bonne réponse.");
+        }
     }
+    // Move to next question after one click
+    handleNextQuestion();
 }
 
 // Move to the next question
@@ -104,9 +97,19 @@ function handleNextQuestion() {
     }
 }
 
-// Initialize first question
-displayQuestion(indexNumber);
+// Wait for DOM to load before executing the script
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Initialize the first question
+    displayQuestion(indexNumber);
 
-// Attach the click event listener to the submit button to check the answer
-const submitButton = document.getElementById("submit-button");
-submitButton.addEventListener("click", checkAnswer);
+    // Attach event listeners to the option labels
+    const optionLabels = document.querySelectorAll('.option');
+    optionLabels.forEach((label) => {
+        label.addEventListener('click', (event) => {
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+            if (selectedOption) {
+                checkAnswer(selectedOption);
+            }
+        });
+    });
+});
