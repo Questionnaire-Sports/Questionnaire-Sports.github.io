@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="fr">
 <head>
     <title>Questionnaire Sports</title>
     <meta charset="utf-8">
@@ -16,20 +16,31 @@
         <!-- Modal for when the quiz ends -->
         <div class="modal-container" id="score-modal">
             <div class="modal-content-container">
-                <h1>Congratulations, Quiz Completed.</h1>
+                <h1>Félicitations, Quiz Terminé</h1>
                 <div class="grade-details">
-                    <p>Attempts: <span id="attempts-count"></span></p>
-                    <p>Wrong Answers: <span id="wrong-answers"></span></p>
-                    <p>Right Answers: <span id="right-answers"></span></p>
-                    <p>Grade: <span id="grade-percentage"></span>%</p>
+                    <p>Essais: <span id="attempts-count"></span></p>
+                    <p>Réponses Incorrectes: <span id="wrong-answers"></span></p>
+                    <p>Réponses Correctes: <span id="right-answers"></span></p>
+                    <p>Note: <span id="grade-percentage"></span>%</p>
                     <p><span id="remarks"></span></p>
                 </div>
                 <div class="modal-button-container">
-                    <button onclick="closeScoreModal()">Continue</button>
+                    <button onclick="closeScoreModal()">Continuer</button>
                 </div>
             </div>
         </div>
         <!-- End of the modal -->
+
+        <!-- Feedback Modal for each answer -->
+        <div class="modal-container" id="feedback-modal">
+            <div class="modal-content-container">
+                <h1 id="feedback-message"></h1>
+                <div class="modal-button-container">
+                    <button onclick="closeFeedbackModal()">Suivant</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of the feedback modal -->
 
         <!-- Main Quiz Container -->
         <div class="game-quiz-container">
