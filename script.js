@@ -78,7 +78,7 @@ function checkAnswer() {
             alert("Bonne Réponse!");
         } else {
             const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
-            alert("Non! La bonne réponse est: " + correctLabel.innerText);
+            alert("Non, c'est pas la bonne réponse!");
         }
 
         // Move to next question immediately after feedback (without waiting)
