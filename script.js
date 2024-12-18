@@ -80,10 +80,10 @@ function checkAnswer() {
             const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
             alert("Non! La bonne réponse est: " + correctLabel.innerText);
         }
-    }
 
-    // Skip to next question after feedback (whether correct or incorrect)
-    setTimeout(handleNextQuestion, 1000); // Delay 1 second before moving to next question
+        // Move to next question immediately after feedback (without waiting)
+        handleNextQuestion();
+    }
 }
 
 // Move to the next question
