@@ -13,6 +13,18 @@
 </head>
 <body>
     <main>
+        <!-- Welcome Modal -->
+        <div class="modal-container" id="welcome-modal">
+            <div class="modal-content-container">
+                <h1>Bienvenue dans le Quiz Sportif!</h1>
+                <p>Testez vos connaissances sur le sport avec ce quiz amusant et stimulant.</p>
+                <div class="modal-button-container">
+                    <button onclick="startQuiz()">Commencer le Quiz</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of Welcome Modal -->
+
         <!-- Modal for when the quiz ends -->
         <div class="modal-container" id="score-modal">
             <div class="modal-content-container">
@@ -43,7 +55,7 @@
         <!-- End of the feedback modal -->
 
         <!-- Main Quiz Container -->
-        <div class="game-quiz-container">
+        <div class="game-quiz-container" style="display: none;">
             <!-- Game Details -->
             <div class="game-details-container">
                 <h1><span id="player-score">0</span> / 30</h1>
