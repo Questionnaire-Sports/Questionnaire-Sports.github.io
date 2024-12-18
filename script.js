@@ -15,79 +15,7 @@ const questions = [
         optionD: "8 ans",
         correctOption: "optionB",
     },
-    {
-        question: "Quelle équipe a remporté le dernier Championnat du Monde de Hockey ?",
-        optionA: "Russie",
-        optionB: "Tchéquie",
-        optionC: "États-Unis",
-        optionD: "Canada",
-        correctOption: "optionB",
-    },
-    {
-        question: "Quelle distance parcourent les participants au marathon ?",
-        optionA: "10 kilomètres",
-        optionB: "21 kilomètres",
-        optionC: "42 kilomètres",
-        optionD: "64 kilomètres",
-        correctOption: "optionC",
-    },
-    {
-        question: "Dans quel pays est né le boxeur Muhammad Ali ?",
-        optionA: "États-Unis",
-        optionB: "Royaume-Uni",
-        optionC: "Canada",
-        optionD: "Jamaïque",
-        correctOption: "optionA",
-    },
-    {
-        question: "Quel athlète a remporté le plus grand nombre de médailles d'or aux Jeux Olympiques ?",
-        optionA: "Michael Phelps",
-        optionB: "Usain Bolt",
-        optionC: "Maria Sharapova",
-        optionD: "Yusuf Bolt",
-        correctOption: "optionA",
-    },
-    {
-        question: "Quel ballon est utilisé dans le basket-ball ?",
-        optionA: "Football",
-        optionB: "Volleyball",
-        optionC: "Handball",
-        optionD: "Basketball",
-        correctOption: "optionD",
-    },
-    {
-        question: "En quelle année la Fédération Internationale de Football (FIFA) a-t-elle été fondée ?",
-        optionA: "1904",
-        optionB: "1923",
-        optionC: "1948",
-        optionD: "1960",
-        correctOption: "optionA",
-    },
-    {
-        question: "Quel pays a remporté le plus de médailles d'or aux Jeux olympiques d'été ?",
-        optionA: "États-Unis",
-        optionB: "URSS",
-        optionC: "Chine",
-        optionD: "Royaume-Uni",
-        correctOption: "optionA",
-    },
-    {
-        question: "Quel est le nombre maximum de joueurs sur le terrain en même temps dans une équipe de football ?",
-        optionA: "9",
-        optionB: "10",
-        optionC: "11",
-        optionD: "12",
-        correctOption: "optionC",
-    },
-    {
-        question: "Dans quel sport gagne-t-on la Coupe Stanley ?",
-        optionA: "Baseball",
-        optionB: "Football américain",
-        optionC: "Hockey",
-        optionD: "Basketball",
-        correctOption: "optionC",
-    },
-    // More questions can follow...
+    // Add other questions as needed
 ];
 
 let questionNumber = 1;
@@ -112,7 +40,55 @@ function displayQuestion(index) {
     });
 }
 
-// Check if the answer is correct
+// Show feedback in modal
+function showFeedback(isCorrect) {
+    const feedbackModal = document.getElementById("feedback-modal");
+    const feedbackMessage = document.getElementById("feedback-message");
+
+    if (isCorrect) {
+        feedbackMessage.innerText = "Bonne réponse!";
+    } else {
+        feedbackMessage.innerText = "Mauvaise réponse!";
+    }
+
+    feedbackModal.style.display = "flex";  // Show modal
+}
+
+// Close the feedback modal and move to the next question
+function closeFeedbackModal() {
+    const feedbackModal = document.getElementById("feedback-modal");
+    feedbackModal.style.display = "none";
+
+    // Move to the next question
+    indexNumber++;
+    questionNumber++;
+
+    // Check if there are more questions
+    if (indexNumber < questions.length) {
+        displayQuestion(indexNumber);
+    } else {
+        showFinalScore();
+    }
+}
+
+// Show the final score modal when the quiz is complete
+function showFinalScore() {
+    const scoreModal = document.getElementById("score-modal");
+    document.getElementById("right-answers").innerText = playerScore;
+    document.getElementById("attempts-count").innerText = questions.length;
+    document.getElementById("wrong-answers").innerText = questions.length - playerScore;
+    document.getElementById("grade-percentage").innerText = Math.round((playerScore / questions.length) * 100);
+    
+    scoreModal.style.display = "flex";  // Show modal
+}
+
+// Close the final score modal
+function closeScoreModal() {
+    const scoreModal = document.getElementById("score-modal");
+    scoreModal.style.display = "none";
+}
+
+// Check if the answer is correct and show feedback
 function checkAnswer() {
     const selectedOption = document.querySelector('input[name="option"]:checked');
     const currentQuestion = questions[indexNumber];
@@ -122,26 +98,10 @@ function checkAnswer() {
 
         if (isCorrect) {
             playerScore++;
-            alert("Bonne Réponse!");
-        } else {
-            alert("Non, ce n'est pas la bonne réponse.");
         }
 
-        // Move to next question immediately after feedback
-        handleNextQuestion();
-    }
-}
-
-// Move to the next question
-function handleNextQuestion() {
-    indexNumber++;
-    questionNumber++;
-
-    // Check if there are more questions
-    if (indexNumber < questions.length) {
-        displayQuestion(indexNumber);
-    } else {
-        alert(`Quiz terminé! Votre score: ${playerScore}/${questions.length}`);
+        // Show feedback modal
+        showFeedback(isCorrect);
     }
 }
 
