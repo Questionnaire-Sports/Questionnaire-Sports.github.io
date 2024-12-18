@@ -105,11 +105,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Initialize the first question
     displayQuestion(indexNumber);
 
-    // Attach event listeners to the option labels
-    const optionLabels = document.querySelectorAll('.option');
-    optionLabels.forEach((label) => {
-        label.addEventListener('click', (event) => {
-            checkAnswer(); // Call checkAnswer when a label is clicked
+    // Attach event listeners to the radio buttons
+    const options = document.querySelectorAll('input[name="option"]');
+    options.forEach((option) => {
+        option.addEventListener('change', (event) => {
+            checkAnswer(); // Call checkAnswer when a radio button is selected
         });
     });
 });
