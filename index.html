@@ -8,6 +8,41 @@
         body {
             background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            color: white;
+        }
+
+        #quiz-container {
+            display: none;
+        }
+
+        #welcome-screen {
+            text-align: center;
+            padding-top: 20%;
+            display: block;
+        }
+
+        .modal-container {
+            display: none;
+        }
+
+        .game-quiz-container {
+            margin-top: 20px;
+        }
+
+        .modal-content-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .modal-button-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -36,7 +71,6 @@
                 </div>
             </div>
         </div>
-        <!-- End of the modal -->
 
         <!-- Feedback Modal for each answer -->
         <div class="modal-container" id="feedback-modal">
@@ -47,10 +81,9 @@
                 </div>
             </div>
         </div>
-        <!-- End of the feedback modal -->
 
         <!-- Main Quiz Container -->
-        <div class="game-quiz-container" style="display: none;" id="quiz-container">
+        <div class="game-quiz-container" id="quiz-container">
             <!-- Game Details -->
             <div class="game-details-container">
                 <h1><span id="player-score">0</span> / 30</h1>
