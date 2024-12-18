@@ -72,8 +72,7 @@ function checkAnswer() {
     
     if (selectedOption) {
         const isCorrect = selectedOption.value === currentQuestion.correctOption;
-        
-        // Update score and show message
+
         if (isCorrect) {
             playerScore++;
             alert("Bonne Réponse!");
@@ -81,10 +80,10 @@ function checkAnswer() {
             const correctLabel = document.getElementById(currentQuestion.correctOption + "-label");
             alert("Non! La bonne réponse est: " + correctLabel.innerText);
         }
-
-        // Move to next question after feedback is shown
-        setTimeout(handleNextQuestion, 1000); // Delay the next question by 1 second
     }
+
+    // Skip to next question after feedback (whether correct or incorrect)
+    setTimeout(handleNextQuestion, 1000); // Delay 1 second before moving to next question
 }
 
 // Move to the next question
