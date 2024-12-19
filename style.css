@@ -25,9 +25,9 @@ main {
 }
 
 .game-quiz-container {
-  width: 40rem;
+  width: 50rem;  /* Increased width to 50rem */
   height: 30rem;
-  background-color: rgba(0, 0, 0, 0.7);  /* Set transparency with rgba */
+  background-color: rgba(0, 0, 0, 0.7);  /* Slightly transparent black background */
   color: white;  /* Set text color to white */
   display: flex;
   flex-direction: column;
