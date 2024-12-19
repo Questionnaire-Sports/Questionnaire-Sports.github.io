@@ -13,11 +13,20 @@
             background-attachment: fixed;
             margin: 0;
             height: 100vh;
+            display: flex; /* Enable flexbox layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             color: white;
         }
 
         #quiz-container {
             display: block;
+            text-align: center; /* Ensures text inside the container is centered */
+            max-width: 100%; /* Ensure it doesn't overflow */
+            width: 80%; /* Adjust the width as needed */
+            background: rgba(0, 0, 0, 0.6); /* Optional, for better contrast */
+            border-radius: 8px;
+            padding: 20px;
         }
 
         .modal-container {
@@ -107,4 +116,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
