@@ -22,6 +22,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative; /* Add relative positioning */
 }
 
 .game-quiz-container {
@@ -33,9 +34,10 @@ main {
   align-items: center;
   justify-content: space-around;
   border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute; /* Use absolute positioning */
+  top: 50%; /* Position at 50% from the top */
+  left: 50%; /* Position at 50% from the left */
+  transform: translate(-50%, -50%); /* Adjust position to perfectly center */
 }
 
 .game-details-container {
