@@ -85,12 +85,14 @@ span label {
   cursor: pointer;
   transition: transform 0.3s;
   font-weight: 600;
-  color: rgb(22, 22, 22);
+  color: white;  /* Change the color of the options to white */
+  background-color: transparent;  /* Ensure background is transparent */
 }
 
 span label:hover {
   transform: scale(1.12);
-  color: white;
+  background-color: lightgray;  /* Change hover background to light gray */
+  color: black;  /* Change text color on hover */
 }
 
 input[type="radio"] {
