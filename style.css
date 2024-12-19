@@ -25,15 +25,15 @@ main {
 }
 
 .game-quiz-container {
-  width: 50rem;  /* Increased width to 50rem */
+  width: 50rem;
   height: 30rem;
-  background-color: rgba(0, 0, 0, 0.7);  /* Slightly transparent black background */
-  color: white;  /* Set text color to white */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Vertically and horizontally center the content */
-  text-align: center; /* Horizontally center the text */
+  justify-content: center; 
+  text-align: center;
   border-radius: 30px;
   position: absolute;
   top: 50%;
@@ -85,14 +85,14 @@ span label {
   cursor: pointer;
   transition: transform 0.3s;
   font-weight: 600;
-  color: white;  /* Change the color of the options to white */
-  background-color: transparent;  /* Ensure background is transparent */
+  color: white; 
+  background-color: transparent;
 }
 
 span label:hover {
   transform: scale(1.12);
-  background-color: lightgray;  /* Change hover background to light gray */
-  color: black;  /* Change text color on hover */
+  background-color: lightgray; 
+  color: black; 
 }
 
 input[type="radio"] {
@@ -101,7 +101,7 @@ input[type="radio"] {
 }
 
 input[type=radio]:checked ~ .option {
-  background: paleturquoise;
+  background: #0a2351;
 }
 
 .modal-container {
