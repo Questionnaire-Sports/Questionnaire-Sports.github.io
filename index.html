@@ -1,8 +1,9 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Questionnaire Sports</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire Sports</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -14,35 +15,11 @@
             height: 100vh;
             color: white;
         }
-
-        #quiz-container {
-            display: none;
-        }
-
+        
         #welcome-screen {
             text-align: center;
             padding-top: 20%;
             display: block;
-        }
-
-        .modal-container {
-            display: none;
-        }
-
-        .game-quiz-container {
-            margin-top: 20px;
-        }
-
-        .modal-content-container {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            color: white;
-        }
-
-        .modal-button-container {
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -52,70 +29,8 @@
         <div id="welcome-screen">
             <h1>Bienvenue au Questionnaire Sports!</h1>
             <p>Cliquez sur le bouton ci-dessous pour commencer le quiz.</p>
-            <button onclick="startQuiz()">Démarrer le Quiz</button>
-        </div>
-
-        <!-- Modal for when the quiz ends -->
-        <div class="modal-container" id="score-modal">
-            <div class="modal-content-container">
-                <h1>Félicitations, Quiz Terminé</h1>
-                <div class="grade-details">
-                    <p>Essais: <span id="attempts-count"></span></p>
-                    <p>Réponses Incorrectes: <span id="wrong-answers"></span></p>
-                    <p>Réponses Correctes: <span id="right-answers"></span></p>
-                    <p>Note: <span id="grade-percentage"></span>%</p>
-                    <p><span id="remarks"></span></p>
-                </div>
-                <div class="modal-button-container">
-                    <button onclick="closeScoreModal()">Continuer</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Feedback Modal for each answer -->
-        <div class="modal-container" id="feedback-modal">
-            <div class="modal-content-container">
-                <h1 id="feedback-message"></h1>
-                <div class="modal-button-container">
-                    <button onclick="closeFeedbackModal()">Suivant</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Quiz Container -->
-        <div class="game-quiz-container" id="quiz-container">
-            <!-- Game Details -->
-            <div class="game-details-container">
-                <h1><span id="player-score">0</span> / 30</h1>
-                <h1><span id="question-number">1</span> / 30</h1>
-            </div>
-            
-            <!-- Question Container -->
-            <div class="game-question-container">
-                <h1 id="display-question"></h1>
-            </div>
-            
-            <!-- Options Container -->
-            <div class="game-options-container">
-                <span>
-                    <input type="radio" id="option-one" name="option" value="optionA" />
-                    <label for="option-one" class="option" id="option-one-label"></label>
-                </span>
-                <span>
-                    <input type="radio" id="option-two" name="option" value="optionB" />
-                    <label for="option-two" class="option" id="option-two-label"></label>
-                </span>
-                <span>
-                    <input type="radio" id="option-three" name="option" value="optionC" />
-                    <label for="option-three" class="option" id="option-three-label"></label>
-                </span>
-                <span>
-                    <input type="radio" id="option-four" name="option" value="optionD" />
-                    <label for="option-four" class="option" id="option-four-label"></label>
-                </span>
-            </div>
+            <button onclick="window.location.href = 'quiz.html';">Démarrer le Quiz</button>
         </div>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>
