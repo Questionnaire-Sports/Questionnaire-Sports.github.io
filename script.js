@@ -241,72 +241,103 @@ const questions = [
         },
 
 ];
-// Variables globales pour suivre l'état du quiz
-let questionNumber = 1; // Numéro actuel de la question
-let playerScore = 0; // Score du joueur
-let indexNumber = 0; // Index de la question actuelle
+let questionNumber = 1;
+let playerScore = 0;
+let indexNumber = 0;
 
-// Fonction pour afficher une question donnée par son index
+// Display question function
 function displayQuestion(index) {
     const currentQuestion = questions[index];
-
-    // Mettre à jour le texte des éléments HTML
-    document.getElementById("question-number").innerText = `Question ${questionNumber}`;
-    document.getElementById("player-score").innerText = `Score: ${playerScore}`;
+    document.getElementById("question-number").innerText = Question ${questionNumber};
+    document.getElementById("player-score").innerText = Score: ${playerScore};
     document.getElementById("display-question").innerText = currentQuestion.question;
     document.getElementById("option-one-label").innerText = currentQuestion.optionA;
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
     document.getElementById("option-three-label").innerText = currentQuestion.optionC;
     document.getElementById("option-four-label").innerText = currentQuestion.optionD;
 
-    // Désélectionner les boutons radio lorsqu'une nouvelle question est chargée
+    // Deselect the radio buttons when a new question is loaded
     const options = document.querySelectorAll('input[name="option"]');
     options.forEach(option => {
-        option.checked = false; // Désélectionner toutes les options
+        option.checked = false; // Deselect all options
     });
 }
 
-// Fonction pour afficher un retour (feedback) dans un modal
+// Show feedback in modal
 function showFeedback(isCorrect) {
     const feedbackModal = document.getElementById("feedback-modal");
     const feedbackMessage = document.getElementById("feedback-message");
 
-    // Message selon la réponse du joueur
     if (isCorrect) {
         feedbackMessage.innerText = "Bonne réponse!";
     } else {
         feedbackMessage.innerText = "Mauvaise réponse!";
     }
 
-    feedbackModal.style.display = "flex";  // Afficher le modal
+    feedbackModal.style.display = "flex";  // Show modal
 }
 
-// Fonction pour fermer le modal de feedback et passer à la question suivante
+// Close the feedback modal and move to the next question
 function closeFeedbackModal() {
     const feedbackModal = document.getElementById("feedback-modal");
     feedbackModal.style.display = "none";
 
-    // Passer à la question suivante
+    // Move to the next question
     indexNumber++;
     questionNumber++;
 
-    // Vérifier s'il reste des questions
+    // Check if there are more questions
     if (indexNumber < questions.length) {
         displayQuestion(indexNumber);
     } else {
-        showFinalScore(); // Afficher le score final si le quiz est terminé
+        showFinalScore();
     }
 }
 
-// Fonction pour afficher le score final à la fin du quiz
+// Show the final score modal when the quiz is complete
 function showFinalScore() {
     const scoreModal = document.getElementById("score-modal");
-
-    // Mettre à jour les éléments HTML avec les résultats
     document.getElementById("right-answers").innerText = playerScore;
     document.getElementById("attempts-count").innerText = questions.length;
     document.getElementById("wrong-answers").innerText = questions.length - playerScore;
-    document.getElementById("grade-percentage").innerText = Math.round((playerScore / questions.length) * 100) + "%";
-
-    scoreModal.style.display = "flex"; // Afficher le modal de score final
+    document.getElementById("grade-percentage").innerText = Math.round((playerScore / questions.length) * 100);
+    
+    scoreModal.style.display = "flex";  // Show modal
 }
+
+// Close the final score modal
+function closeScoreModal() {
+    const scoreModal = document.getElementById("score-modal");
+    scoreModal.style.display = "none";
+}
+
+// Check if the answer is correct and show feedback
+function checkAnswer() {
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    const currentQuestion = questions[indexNumber];
+    
+    if (selectedOption) {
+        const isCorrect = selectedOption.value === currentQuestion.correctOption;
+
+        if (isCorrect) {
+            playerScore++;
+        }
+
+        // Show feedback modal
+        showFeedback(isCorrect);
+    }
+}
+
+// Wait for DOM to load before executing the script
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Initialize the first question
+    displayQuestion(indexNumber);
+
+    // Attach event listeners to the radio buttons
+    const options = document.querySelectorAll('input[name="option"]');
+    options.forEach((option) => {
+        option.addEventListener('change', (event) => {
+            checkAnswer(); // Call checkAnswer when a radio button is selected
+        });
+    });
+});
