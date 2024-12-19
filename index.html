@@ -6,6 +6,72 @@
     <title>Questionnaire Sports</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  padding: 0;
+}
+
+#welcome-screen {
+  text-align: center;
+  color: white;
+  padding: 20% 10%;
+  background: rgba(0, 0, 0, 0.6); /* Slightly dark background for contrast */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+#welcome-screen h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#welcome-screen p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#welcome-screen button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  background-color: #1E90FF;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#welcome-screen button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+#welcome-screen button:focus {
+  outline: none;
+}
         body {
             background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
             background-size: cover;
