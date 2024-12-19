@@ -88,10 +88,7 @@ const questions = [
                 correctOption: "optionC",
         },
         {
-                question: "Quel est le nombre maximum de joueurs sur le terrain en même temps dans une équipe de 
-                        
-                        
-                        volley-ball ?",
+                question: "Quel est le nombre maximum de joueurs sur le terrain en même temps dans une équipe de volley-ball ?",
                 optionA: "4",
                 optionB: "5",
                 optionC: "6",
