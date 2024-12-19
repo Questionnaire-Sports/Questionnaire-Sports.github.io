@@ -88,7 +88,10 @@ const questions = [
                 correctOption: "optionC",
         },
         {
-                question: "Quel est le nombre maximum de joueurs sur le terrain en même temps dans une équipe de volley-ball ?",
+                question: "Quel est le nombre maximum de joueurs sur le terrain en même temps dans une équipe de 
+                        
+                        
+                        volley-ball ?",
                 optionA: "4",
                 optionB: "5",
                 optionC: "6",
@@ -249,7 +252,7 @@ let indexNumber = 0;
 function displayQuestion(index) {
     const currentQuestion = questions[index];
     document.getElementById("question-number").innerText = `Question ${questionNumber}`;
-    document.getElementById("player-score").innerText = `Score: ${playerScore}`;
+    document.getElementById("player-score").innerText = `Score ${playerScore}`;
     document.getElementById("display-question").innerText = currentQuestion.question;
     document.getElementById("option-one-label").innerText = currentQuestion.optionA;
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
