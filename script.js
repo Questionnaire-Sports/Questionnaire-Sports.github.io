@@ -249,7 +249,7 @@ let indexNumber = 0;
 function displayQuestion(index) {
     const currentQuestion = questions[index];
     document.getElementById("question-number").innerText = `Question ${questionNumber}`;
-    document.getElementById("player-score").innerText = `Score: ${playerScore}`;
+    document.getElementById("player-score").innerText = `Score:     ${playerScore}`;
     document.getElementById("display-question").innerText = currentQuestion.question;
     document.getElementById("option-one-label").innerText = currentQuestion.optionA;
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
