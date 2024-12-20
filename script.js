@@ -245,21 +245,20 @@ let questionNumber = 1;
 let playerScore = 0;
 let indexNumber = 0;
 
-// Display question function
+
 function displayQuestion(index) {
     const currentQuestion = questions[index];
     document.getElementById("question-number").innerText = `Question ${questionNumber}`;
-    document.getElementById("player-score").innerText = `Score ${playerScore}\t\t`;
+    document.getElementById("player-score").innerText = `Score: ${playerScore}`;
     document.getElementById("display-question").innerText = currentQuestion.question;
     document.getElementById("option-one-label").innerText = currentQuestion.optionA;
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
     document.getElementById("option-three-label").innerText = currentQuestion.optionC;
     document.getElementById("option-four-label").innerText = currentQuestion.optionD;
 
-    // Deselect the radio buttons when a new question is loaded
     const options = document.querySelectorAll('input[name="option"]');
     options.forEach(option => {
-        option.checked = false; // Deselect all options
+        option.checked = false;
     });
 }
 
