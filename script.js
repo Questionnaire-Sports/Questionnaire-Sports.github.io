@@ -241,102 +241,99 @@ const questions = [
         },
 
 ];
-let questionNumber = 1;
-let playerScore = 0;
-let indexNumber = 0;
+// Variables globales
+let questionNumber = 1; // Numéro de la question actuelle
+let playerScore = 0;    // Score du joueur
+let indexNumber = 0;    // Index de la question actuelle
 
-
+// Fonction pour afficher une question donnée
 function displayQuestion(index) {
-    const currentQuestion = questions[index];
+    const currentQuestion = questions[index]; // Obtenir la question actuelle
     document.getElementById("question-number").innerText = `Question ${questionNumber}`;
-    document.getElementById("player-score").innerText = `Score:     ${playerScore}`;
+    document.getElementById("player-score").innerText = `Score: ${playerScore}`;
     document.getElementById("display-question").innerText = currentQuestion.question;
     document.getElementById("option-one-label").innerText = currentQuestion.optionA;
     document.getElementById("option-two-label").innerText = currentQuestion.optionB;
     document.getElementById("option-three-label").innerText = currentQuestion.optionC;
     document.getElementById("option-four-label").innerText = currentQuestion.optionD;
 
+    // Réinitialiser les options sélectionnées
     const options = document.querySelectorAll('input[name="option"]');
     options.forEach(option => {
         option.checked = false;
     });
 }
 
-// Show feedback in modal
+// Fonction pour afficher un feedback (modal) après une réponse
 function showFeedback(isCorrect) {
     const feedbackModal = document.getElementById("feedback-modal");
     const feedbackMessage = document.getElementById("feedback-message");
 
-    if (isCorrect) {
-        feedbackMessage.innerText = "Bonne réponse!";
-    } else {
-        feedbackMessage.innerText = "Mauvaise réponse!";
-    }
-
-    feedbackModal.style.display = "flex";  // Show modal
+    // Définir le message selon la validité de la réponse
+    feedbackMessage.innerText = isCorrect ? "Bonne réponse!" : "Mauvaise réponse!";
+    feedbackModal.style.display = "flex"; // Afficher le modal
 }
 
-// Close the feedback modal and move to the next question
+// Fonction pour fermer le feedback modal et passer à la question suivante
 function closeFeedbackModal() {
     const feedbackModal = document.getElementById("feedback-modal");
-    feedbackModal.style.display = "none";
+    feedbackModal.style.display = "none"; // Cacher le modal
 
-    // Move to the next question
+    // Passer à la question suivante
     indexNumber++;
     questionNumber++;
 
-    // Check if there are more questions
+    // Vérifier s'il reste des questions
     if (indexNumber < questions.length) {
-        displayQuestion(indexNumber);
+        displayQuestion(indexNumber); // Afficher la prochaine question
     } else {
-        showFinalScore();
+        showFinalScore(); // Afficher le score final si le quiz est terminé
     }
 }
 
-// Show the final score modal when the quiz is complete
+// Fonction pour afficher le score final dans un modal
 function showFinalScore() {
     const scoreModal = document.getElementById("score-modal");
     document.getElementById("right-answers").innerText = playerScore;
     document.getElementById("attempts-count").innerText = questions.length;
     document.getElementById("wrong-answers").innerText = questions.length - playerScore;
     document.getElementById("grade-percentage").innerText = Math.round((playerScore / questions.length) * 100);
-    
-    scoreModal.style.display = "flex";  // Show modal
+
+    scoreModal.style.display = "flex"; // Afficher le modal
 }
 
-// Close the final score modal
+// Fonction pour fermer le modal du score final
 function closeScoreModal() {
     const scoreModal = document.getElementById("score-modal");
-    scoreModal.style.display = "none";
+    scoreModal.style.display = "none"; // Cacher le modal
 }
 
-// Check if the answer is correct and show feedback
+// Fonction pour vérifier si la réponse est correcte et afficher le feedback
 function checkAnswer() {
-    const selectedOption = document.querySelector('input[name="option"]:checked');
-    const currentQuestion = questions[indexNumber];
-    
+    const selectedOption = document.querySelector('input[name="option"]:checked'); // Récupérer l'option sélectionnée
+    const currentQuestion = questions[indexNumber]; // Récupérer la question actuelle
+
     if (selectedOption) {
-        const isCorrect = selectedOption.value === currentQuestion.correctOption;
+        const isCorrect = selectedOption.value === currentQuestion.correctOption; // Comparer la réponse
 
         if (isCorrect) {
-            playerScore++;
+            playerScore++; // Augmenter le score si la réponse est correcte
         }
 
-        // Show feedback modal
-        showFeedback(isCorrect);
+        showFeedback(isCorrect); // Afficher le feedback
     }
 }
 
-// Wait for DOM to load before executing the script
+// Attendre que le DOM soit chargé avant d'exécuter le script
 window.addEventListener('DOMContentLoaded', (event) => {
-    // Initialize the first question
+    // Initialiser la première question
     displayQuestion(indexNumber);
 
-    // Attach event listeners to the radio buttons
+    // Ajouter des listeners aux boutons radio pour détecter les changements
     const options = document.querySelectorAll('input[name="option"]');
     options.forEach((option) => {
         option.addEventListener('change', (event) => {
-            checkAnswer(); // Call checkAnswer when a radio button is selected
+            checkAnswer(); // Vérifier la réponse lorsqu'une option est sélectionnée
         });
     });
 });
