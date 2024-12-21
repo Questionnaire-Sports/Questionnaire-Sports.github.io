@@ -6,6 +6,7 @@
     <title>Questionnaire Sports</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Style général du body */
         body {
             background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
             background-size: cover;
@@ -13,24 +14,24 @@
             background-attachment: fixed;
             margin: 0;
             height: 100vh;
-            display: flex; /* Enable flexbox layout */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            display: flex; /* Active le layout Flexbox */
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
             color: white;
-}
+        }
     </style>
 </head>
 <body>
     <main>
-        <!-- Modal for when the quiz ends -->
+        <!-- Modal affiché à la fin du quiz -->
         <div class="modal-container" id="score-modal">
             <div class="modal-content-container">
                 <h1>Félicitations, Quiz Terminé</h1>
                 <div class="grade-details">
-                    <p>Essais: <span id="attempts-count"></span></p>
-                    <p>Réponses Incorrectes: <span id="wrong-answers"></span></p>
-                    <p>Réponses Correctes: <span id="right-answers"></span></p>
-                    <p>Note: <span id="grade-percentage"></span>%</p>
+                    <p>Essais : <span id="attempts-count"></span></p>
+                    <p>Réponses Incorrectes : <span id="wrong-answers"></span></p>
+                    <p>Réponses Correctes : <span id="right-answers"></span></p>
+                    <p>Note : <span id="grade-percentage"></span>%</p>
                     <p><span id="remarks"></span></p>
                 </div>
                 <div class="modal-button-container">
@@ -39,7 +40,7 @@
             </div>
         </div>
 
-        <!-- Feedback Modal for each answer -->
+        <!-- Modal de feedback pour chaque réponse -->
         <div class="modal-container" id="feedback-modal">
             <div class="modal-content-container">
                 <h1 id="feedback-message"></h1>
@@ -49,20 +50,20 @@
             </div>
         </div>
 
-        <!-- Main Quiz Container -->
+        <!-- Conteneur principal du quiz -->
         <div class="game-quiz-container" id="quiz-container">
-            <!-- Game Details -->
+            <!-- Détails du jeu -->
             <div class="game-details-container">
-                <h1><span id="player-score">0</span> / 30 </h1>
+                <h1><span id="player-score">0</span> / 30</h1>
                 <h1><span id="question-number">1</span> / 30</h1>
             </div>
             
-            <!-- Question Container -->
+            <!-- Conteneur des questions -->
             <div class="game-question-container">
                 <h1 id="display-question"></h1>
             </div>
             
-            <!-- Options Container -->
+            <!-- Conteneur des options -->
             <div class="game-options-container">
                 <span>
                     <input type="radio" id="option-one" name="option" value="optionA" />
@@ -83,6 +84,7 @@
             </div>
         </div>
     </main>
+    <!-- Lien vers le fichier JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
