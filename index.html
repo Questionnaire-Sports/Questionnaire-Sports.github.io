@@ -7,92 +7,86 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
+        /* Réinitialisation des marges et des bordures pour tous les éléments */
         * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html, body {
-  height: 100%;
-}
+        /* Définir la hauteur de la page HTML et body pour couvrir l'écran */
+        html, body {
+            height: 100%;
+        }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
-  padding: 0;
-}
-
-#welcome-screen {
-  text-align: center;
-  color: white;
-  padding: 20% 10%;
-  background: rgba(0, 0, 0, 0.6); /* Slightly dark background for contrast */
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-}
-
-#welcome-screen h1 {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-#welcome-screen p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-#welcome-screen button {
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  background-color: #1E90FF;
-  border: none;
-  color: white;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-#welcome-screen button:hover {
-  background-color: #0056b3;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-#welcome-screen button:focus {
-  outline: none;
-}
+        /* Style général du body */
         body {
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-image: url("https://www.issoire-tourisme.com/wp-content/uploads/wpetourisme/3076727-diaporama.jpg");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            margin: 0;
             height: 100vh;
-            color: white;
+            padding: 0;
         }
-        
+
+        /* Section d'accueil avec un fond semi-transparent */
         #welcome-screen {
             text-align: center;
-            padding-top: 20%;
-            display: block;
+            color: white;
+            padding: 20% 10%;
+            background: rgba(0, 0, 0, 0.6); /* Fond légèrement sombre pour le contraste */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Ombre pour donner de la profondeur */
+        }
+
+        /* Style du titre principal */
+        #welcome-screen h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre du texte pour la lisibilité */
+        }
+
+        /* Style des paragraphes */
+        #welcome-screen p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombre du texte pour un effet esthétique */
+        }
+
+        /* Style du bouton */
+        #welcome-screen button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #1E90FF; /* Couleur bleue */
+            border: none;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre sous le bouton */
+        }
+
+        /* Effet hover sur le bouton */
+        #welcome-screen button:hover {
+            background-color: #0056b3; /* Couleur plus sombre */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ombre légèrement plus forte */
+        }
+
+        /* Retirer le focus par défaut autour du bouton */
+        #welcome-screen button:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
     <main>
-        <!-- Welcome Screen -->
+        <!-- Écran de bienvenue -->
         <div id="welcome-screen">
             <h1>Bienvenue au Questionnaire Sports!</h1>
             <p>Cliquez sur le bouton ci-dessous pour commencer le quiz.</p>
